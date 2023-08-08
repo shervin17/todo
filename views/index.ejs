@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div class="container">
+    <h1> Todo-List</h1>
+    <% if(locals.data){ %>
+       <% data.forEach((element)=>{ %>
+        <div class="todo-list">
+           <form action="/del" method="post" class="cb"> 
+             <input type="checkbox" onchange="this.form.submit()" value="<%=element.list%>" name="myCheckbox"> 
+             <span><%=element.list%></span>
+           </form>
+        </div>
+
+      <%  }); %>
+     <%}   %> 
+     <form method="post" class="act">
+        <input type="text" placeholder="to-do activity goes here" name="task" autocomplete="off">
+        <button type="submit" formaction="/post" > + </button>
+     </form>
+
+    </div>
+
+    
+</body>
+</html>
